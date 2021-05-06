@@ -62,11 +62,18 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="<c:url value='/views/login.jsp'/> "><i class="fa fa-lock"></i> Login</a></li>
+
+                            <c:if test="${not empty USERDTO}">
+                                <li><a href="#"><i class="fa fa-crosshairs"></i> Wellcome,${USERDTO.username}</a></li>
+                                <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="<c:url value='/thoat?action=logout'/>"><i class="fa fa-lock"></i> Thoát</a></li>
+                            </c:if>
+                            <c:if test="${ empty USERDTO}">
+                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Đăng Ký</a></li>
+                                <li><a href="<c:url value='/dang-nhap?action=login'/> "><i class="fa fa-lock"></i> Đăng Nhập</a></li>
+
+                            </c:if>
                         </ul>
                     </div>
                 </div>

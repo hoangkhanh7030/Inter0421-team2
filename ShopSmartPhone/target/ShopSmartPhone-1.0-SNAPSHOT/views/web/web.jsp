@@ -8,6 +8,7 @@
     <title>Trang chủ</title>
 </head>
 <body>
+<div>
 <section id="slider"><!--slider-->
     <div class="container">
         <div class="row">
@@ -763,6 +764,7 @@
         </div>
     </div>
 </section>
+</div>
 
 </body>
 </html>

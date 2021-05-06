@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <title><dec:title default="Trang chủ" /></title>
-
     <link href="<c:url value='/template/web/css/bootstrap.min.css'/> " rel="stylesheet">
     <link href="<c:url value='/template/web/css/font-awesome.min.css'/> " rel="stylesheet">
     <link href="<c:url value='/template/web/css/prettyPhoto.css'/> " rel="stylesheet">
@@ -12,9 +10,6 @@
     <link href="<c:url value='/template/web/css/animate.css'/> " rel="stylesheet">
     <link href="<c:url value='/template/web/css/main.css'/> " rel="stylesheet">
     <link href="<c:url value='/template/web/css/responsive.css'/> "rel="stylesheet">
-
-
-
 <%--    <link rel="shortcut icon" href="<c:url value='/template/web/images/ico/favicon.ico'/>">--%>
 <%--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<c:url value='/template/web/images/ico/apple-touch-icon-144-precomposed.png'/>">--%>
 <%--    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/template/web/images/ico/apple-touch-icon-114-precomposed.png">--%>
@@ -23,11 +18,14 @@
 
 
 </head>
-<body>
+<body id="container">
 <!-- header -->
 <%@ include file="/common/web/header.jsp" %>
 <!-- header -->
-    <dec:body/>
+
+<dec:body/>
+
+
 <!-- footer -->
 <%@ include file="/common/web/footer.jsp" %>
 
