@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 @WebServlet(urlPatterns = {"/trang-chu","/dang-nhap","/thoat"})
 public class HomeController extends HttpServlet {
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
     private IUserService userService;
     public HomeController(){
         userService = new UserService();
@@ -35,15 +37,25 @@ public class HomeController extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+"/admin-home");
                 }
             }else {
-                response.sendRedirect(request.getContextPath()+"/dang-nhap?action=login");
+
+                response.sendRedirect(request.getContextPath()+"/dang-nhap?action=login&message=username_password_invalid&alert=danger");
             }
         }
     }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action != null && action.equals("login")){
+            String message = request.getParameter("message");
+            String alert = request.getParameter("alert");
+                if (message != null && alert != null){
+                    request.setAttribute("message",resourceBundle.getString(message));
+                    request.setAttribute("alert",alert);
+
+                }
+
             RequestDispatcher rd = request.getRequestDispatcher("/views/login/login.jsp");
             rd.forward(request, response);
         }else if (action != null && action.equals("logout")){

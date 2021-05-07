@@ -20,10 +20,19 @@
             </div>
             <div class="card-body">
                 <form action="<c:url value='/dang-nhap'/> " method="post" id="formLogin">
+                    <c:if test="${not empty message}">
+                        <div class="alert alert-${alert}" role="alert">
+                                ${message}
+                        </div>
+                    </c:if>
+
                     <div class="input-group form-group">
+
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
+
+
                         <input type="text" class="form-control" id="username" placeholder="Tên Đăng Nhập" name="username">
 
                     </div>
@@ -37,7 +46,7 @@
                         <input type="checkbox">Remember Me
                     </div>
                     <div class="form-group">
-                        <input type="hidden" value="login" name="action"/>
+                        <input type="hidden" value="login" id="action" name="action"/>
                         <button type="submit" class="btn float-right login_btn">Đăng Nhập</button>
                     </div>
                 </form>
