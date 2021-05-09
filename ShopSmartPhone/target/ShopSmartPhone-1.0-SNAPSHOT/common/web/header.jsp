@@ -64,13 +64,13 @@
                         <ul class="nav navbar-nav">
 
                             <c:if test="${not empty USERDTO}">
-                                <li><a href="#"><i class="fa fa-crosshairs"></i> Wellcome,${USERDTO.username}</a></li>
+                                <li><a href="#"><i class="fa fa-crosshairs"></i> Wellcome,${USERDTO.fullname}</a></li>
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 <li><a href="<c:url value='/thoat?action=logout'/>"><i class="fa fa-lock"></i> Thoát</a></li>
                             </c:if>
                             <c:if test="${ empty USERDTO}">
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Đăng Ký</a></li>
+                                <li><a href='<c:url value="/dang-ky?action=signup"/> '><i class="fa fa-crosshairs"></i> Đăng Ký</a></li>
                                 <li><a href="<c:url value='/dang-nhap?action=login'/> "><i class="fa fa-lock"></i> Đăng Nhập</a></li>
 
                             </c:if>

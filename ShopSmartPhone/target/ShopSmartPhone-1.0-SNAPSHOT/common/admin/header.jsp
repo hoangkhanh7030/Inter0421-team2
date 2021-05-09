@@ -16,7 +16,7 @@
             <ul class="nav ace-nav">
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        Xin chào, ${USERDTO.username}
+                        Xin chào, ${USERDTO.fullname}
                     </a>
                 <li class="light-blue dropdown-modal">
                     <a href="<c:url value='/thoat?action=logout'/>">

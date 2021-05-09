@@ -14,6 +14,7 @@ public class UserMapper implements RowMapper<UserDTO>{
             UserDTO userDTO = new UserDTO();
             userDTO.setUsername(rs.getString("username"));
             userDTO.setPassword(rs.getString("password"));
+            userDTO.setFullname(rs.getString("fullname"));
             try {
                 RoleDTO roleDTO = new RoleDTO();
                 roleDTO.setRole_id(rs.getInt("role_id"));

@@ -4,6 +4,15 @@ public class UserDTO {
     private String username;
     private String password;
     private int role_id;
+    private String fullname;
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
 
     private RoleDTO role = new RoleDTO();
 
