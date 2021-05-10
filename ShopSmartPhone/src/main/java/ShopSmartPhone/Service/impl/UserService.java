@@ -14,4 +14,16 @@ public class UserService implements IUserService {
     public UserDTO findByUserNameAndPassword(String username, String password) {
         return userDao.findByUserNameAndPassword(username,password);
     }
+
+    @Override
+    public UserDTO addUser(String username,String password,String fullname,int role_id) {
+        Long userId = userDao.addUser(username,password,fullname,role_id);
+        return userDao.findOne(userId);
+    }
+
+
+    @Override
+    public UserDTO findUsername(String username) {
+        return userDao.findUsername(username);
+    }
 }

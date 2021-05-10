@@ -1,10 +1,30 @@
 package ShopSmartPhone.DTO;
 
 public class UserDTO {
+    private Long id;
     private String username;
     private String password;
-    private int role_id;
     private String fullname;
+    private int role_id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public UserDTO(){
+
+   }
+
+    public UserDTO(String username, String password, String fullname, int role_id) {
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.role_id = role_id;
+    }
 
     public String getFullname() {
         return fullname;
