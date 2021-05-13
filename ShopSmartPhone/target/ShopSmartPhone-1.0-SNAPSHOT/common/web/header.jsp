@@ -64,7 +64,7 @@
                         <ul class="nav navbar-nav">
 
                             <c:if test="${not empty USERDTO}">
-                                <li><a href="#"><i class="fa fa-crosshairs"></i> Wellcome,${USERDTO.fullname}</a></li>
+                                <li><a href="<c:url value="/user-profile"/> "><i class="fa fa-crosshairs"></i> Wellcome,${USERDTO.fullname}</a></li>
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 <li><a href="<c:url value='/thoat?action=logout'/>"><i class="fa fa-lock"></i> Thoát</a></li>

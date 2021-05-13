@@ -20,4 +20,7 @@
     <decorator name="signup" page="signup.jsp">
         <pattern>/dang-ky</pattern>
     </decorator>
+    <decorator name="profile" page="profile.jsp">
+        <pattern>/user-profile</pattern>
+    </decorator>
 </decorators>

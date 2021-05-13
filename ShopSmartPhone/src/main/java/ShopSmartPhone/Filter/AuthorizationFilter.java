@@ -25,9 +25,9 @@ public class AuthorizationFilter implements Filter {
         if (url.startsWith("/admin")){
             UserDTO userDTO =(UserDTO) SessionUtil.getInstance().getValue(request,"USERDTO");
             if (userDTO!= null){
-                if (userDTO.getRole().getRole_name().equals("admin")){
+                if (userDTO.getRole().getRole_name().equals("ADMIN")){
                     filterChain.doFilter(servletRequest,servletResponse);
-                }else if(userDTO.getRole().getRole_name().equals("user")){
+                }else if(userDTO.getRole().getRole_name().equals("USER")){
                     response.sendRedirect(request.getContextPath()+"/dang-nhap?action=login&message=not_permisson&alter=danger");
                 }
 

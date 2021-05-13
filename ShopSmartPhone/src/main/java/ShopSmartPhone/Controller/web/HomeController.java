@@ -33,9 +33,9 @@ public class HomeController extends HttpServlet {
             userDTO = userService.findByUserNameAndPassword(userDTO.getUsername(),userDTO.getPassword());
             if (userDTO != null ){
                 SessionUtil.getInstance().putValue(request,"USERDTO",userDTO);
-                if (userDTO.getRole().getRole_name().equals("user")){
+                if (userDTO.getRole().getRole_name().equals("USER")){
                     response.sendRedirect(request.getContextPath()+"/trang-chu");
-                }else if (userDTO.getRole().getRole_name().equals("admin")){
+                }else if (userDTO.getRole().getRole_name().equals("ADMIN")){
                     response.sendRedirect(request.getContextPath()+"/admin-home");
                 }
             }else {
