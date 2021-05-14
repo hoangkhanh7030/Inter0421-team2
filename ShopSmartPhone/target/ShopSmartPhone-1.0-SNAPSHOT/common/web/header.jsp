@@ -1,127 +1,92 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<header id="header"><!--header-->
-    <div class="header_top"><!--header_top-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="contactinfo">
-                        <ul class="nav nav-pills">
-                            <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="social-icons pull-right">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                    </div>
+
+<div class="header-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="user-menu">
+                    <ul>
+                        <c:if test="${not empty USERDTO}">
+                            <li><a href='<c:url value="/user-profile?action=profile"/>'><i class="fa fa-user"></i> My Account</a></li>
+                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href='<c:url value="/thoat?action=logout"/>'><i class="fa fa-user"></i> Logout</a></li>
+                        </c:if>
+                        <c:if test="${empty USERDTO}">
+                            <li><a href='<c:url value="/dang-ky?action=signup"/>'><i class="fa fa-user"></i> Signup</a></li>
+                            <li><a href='<c:url value="/dang-nhap?action=login"/>'><i class="fa fa-user"></i> Login</a></li>
+                        </c:if>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div><!--/header_top-->
 
-    <div class="header-middle"><!--header-middle-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="logo pull-left">
-                        <a href="<c:url value='/trang-chu'/> "><img src="<c:url value='/template/web/images/home/logo.png'/>" alt="" /></a>
-                    </div>
-                    <div class="btn-group pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                USA
-                                <span class="caret"></span>
-                            </button>
+            <div class="col-md-4">
+                <div class="header-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="dropdown dropdown-small">
+                            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Canada</a></li>
-                                <li><a href="#">UK</a></li>
+                                <li><a href="#">USD</a></li>
+                                <li><a href="#">INR</a></li>
+                                <li><a href="#">GBP</a></li>
                             </ul>
-                        </div>
+                        </li>
 
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                DOLLAR
-                                <span class="caret"></span>
-                            </button>
+                        <li class="dropdown dropdown-small">
+                            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Canadian Dollar</a></li>
-                                <li><a href="#">Pound</a></li>
+                                <li><a href="#">English</a></li>
+                                <li><a href="#">French</a></li>
+                                <li><a href="#">German</a></li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="shop-menu pull-right">
-                        <ul class="nav navbar-nav">
-
-                            <c:if test="${not empty USERDTO}">
-                                <li><a href="<c:url value="/user-profile?action=profile"/> "><i class="fa fa-crosshairs"></i> Wellcome,${USERDTO.fullname}</a></li>
-                                <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="<c:url value='/thoat?action=logout'/>"><i class="fa fa-lock"></i> Thoát</a></li>
-                            </c:if>
-                            <c:if test="${ empty USERDTO}">
-                                <li><a href='<c:url value="/dang-ky?action=signup"/> '><i class="fa fa-crosshairs"></i> Đăng Ký</a></li>
-                                <li><a href="<c:url value='/dang-nhap?action=login'/> "><i class="fa fa-lock"></i> Đăng Nhập</a></li>
-
-                            </c:if>
-                        </ul>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div><!--/header-middle-->
-
-    <div class="header-bottom"><!--header-bottom-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-9">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="mainmenu pull-left">
-                        <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">Products</a></li>
-                                    <li><a href="product-details.html">Product Details</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="<c:url value='/dang-nhap?action=login'/>">Login</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="blog.html">Blog List</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
-                        </ul>
-                    </div>
+    </div>
+</div>
+<div class="site-branding-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="logo">
+                    <h1><a href="./"><img src="/template/web/img/logo.png"></a></h1>
                 </div>
-                <div class="col-sm-3">
-                    <div class="search_box pull-right">
-                        <input type="text" placeholder="Search"/>
-                    </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="shopping-item">
+                    <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                 </div>
             </div>
         </div>
-    </div><!--/header-bottom-->
-</header><!--/header-->
+    </div>
+</div>
+<div class="mainmenu-area">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href='<c:url value="/trang-chu"/>'>Home</a></li>
+                    <li><a href='<c:url value="/trang-chu?action=shop"/>'>Shop page</a></li>
+                    <li><a href="single-product.html">Single product</a></li>
+                    <li><a href='<c:url value="/trang-chu?action=cart"/>'>Cart</a></li>
+                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a href="#">Category</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div> <!-- End mainmenu area -->

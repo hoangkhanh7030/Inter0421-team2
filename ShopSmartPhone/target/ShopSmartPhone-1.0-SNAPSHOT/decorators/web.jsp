@@ -3,19 +3,21 @@
 <html>
 <head>
     <title><dec:title default="Trang chủ" /></title>
-    <link href="<c:url value='/template/web/css/bootstrap.min.css'/> " rel="stylesheet">
-    <link href="<c:url value='/template/web/css/font-awesome.min.css'/> " rel="stylesheet">
-    <link href="<c:url value='/template/web/css/prettyPhoto.css'/> " rel="stylesheet">
-    <link href="<c:url value='/template/web/css/price-range.css'/> " rel="stylesheet">
-    <link href="<c:url value='/template/web/css/animate.css'/> " rel="stylesheet">
-    <link href="<c:url value='/template/web/css/main.css'/> " rel="stylesheet">
-    <link href="<c:url value='/template/web/css/responsive.css'/> "rel="stylesheet">
-<%--    <link rel="shortcut icon" href="<c:url value='/template/web/images/ico/favicon.ico'/>">--%>
-<%--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<c:url value='/template/web/images/ico/apple-touch-icon-144-precomposed.png'/>">--%>
-<%--    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/template/web/images/ico/apple-touch-icon-114-precomposed.png">--%>
-<%--    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/template/web/images/ico/apple-touch-icon-72-precomposed.png">--%>
-<%--    <link rel="apple-touch-icon-precomposed" href="/template/web/images/ico/apple-touch-icon-57-precomposed.png">--%>
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="<c:url value='/template/web/css/bootstrap.min.css'/>">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<c:url value='/template/web/css/font-awesome.min.css'/>">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<c:url value='/template/web/css/owl.carousel.css'/>">
+    <link rel="stylesheet" href="<c:url value='/template/web/style.css'/>">
+    <link rel="stylesheet" href="<c:url value='/template/web/css/responsive.css'/>">
 
 </head>
 <body id="container">
@@ -29,11 +31,24 @@
 <!-- footer -->
 <%@ include file="/common/web/footer.jsp" %>
 
-<script src="<c:url value='/template/web/js/jquery.js'/>"></script>
-<script src="<c:url value='/template/web/js/bootstrap.min.js'/>"></script>
-<script src="<c:url value='/template/web/js/jquery.scrollUp.min.js'/>"></script>
-<script src="<c:url value='/template/web/js/price-range.js'/>"></script>
-<script src="<c:url value='/template/web/js/jquery.prettyPhoto.js'/>"></script>
+<!-- Latest jQuery form server -->
+<script src="https://code.jquery.com/jquery.min.js"></script>
+
+<!-- Bootstrap JS form CDN -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- jQuery sticky menu -->
+<script src="<c:url value='/template/web/js/owl.carousel.min.js'/>"></script>
+<script src="<c:url value='/template/web/js/jquery.sticky.js'/>"></script>
+
+<!-- jQuery easing -->
+<script src="<c:url value='/template/web/js/jquery.easing.1.3.min.js'/>"></script>
+
+<!-- Main Script -->
 <script src="<c:url value='/template/web/js/main.js'/>"></script>
+
+<!-- Slider -->
+<script type="text/javascript" src="<c:url value='/template/web/js/bxslider.min.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/template/web/js/script.slider.js'/>"></script>
 </body>
 </html>

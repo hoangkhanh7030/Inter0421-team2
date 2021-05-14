@@ -105,6 +105,12 @@ public class HomeController extends HttpServlet {
             request.setAttribute("account",userService.findUsername(((UserDTO)SessionUtil.getInstance().getValue(request,"USERDTO")).getUsername()));
             RequestDispatcher requestDispatcher=request.getRequestDispatcher("/views/profile/profile.jsp");
             requestDispatcher.forward(request,response);
+        }else if(action != null && action.equals("shop")) {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/shop/shop.jsp");
+            requestDispatcher.forward(request, response);
+        }else if(action != null && action.equals("cart")) {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/cart/cart.jsp");
+            requestDispatcher.forward(request, response);
         }
         else {
             RequestDispatcher requestDispatcher=request.getRequestDispatcher("/views/web/web.jsp");
