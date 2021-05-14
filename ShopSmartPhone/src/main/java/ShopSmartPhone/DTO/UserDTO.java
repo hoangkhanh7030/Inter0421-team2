@@ -6,6 +6,60 @@ public class UserDTO {
     private String password;
     private String fullname;
     private int role_id;
+    private String email;
+    private int phone_number;
+    private String address;
+    private String country;
+    private String bank_name;
+    private Long bank_account_number;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(int phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getBank_name() {
+        return bank_name;
+    }
+
+    public void setBank_name(String bank_name) {
+        this.bank_name = bank_name;
+    }
+
+    public Long getBank_account_number() {
+        return bank_account_number;
+    }
+
+    public void setBank_account_number(Long bank_account_number) {
+        this.bank_account_number = bank_account_number;
+    }
 
     public Long getId() {
         return id;

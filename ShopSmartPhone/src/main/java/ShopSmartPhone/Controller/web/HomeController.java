@@ -5,6 +5,7 @@ import ShopSmartPhone.Service.IUserService;
 import ShopSmartPhone.Service.impl.UserService;
 import ShopSmartPhone.Utils.FormUtil;
 import ShopSmartPhone.Utils.SessionUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
-@WebServlet(urlPatterns = {"/trang-chu","/dang-nhap","/dang-ky","/thoat"})
+@WebServlet(urlPatterns = {"/trang-chu","/dang-nhap","/dang-ky","/thoat","/user-profile"})
 public class HomeController extends HttpServlet {
     ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 
@@ -25,9 +26,9 @@ public class HomeController extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
         String action = request.getParameter("action");
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("utf-8");
         if(action!= null && action.equals("login")){
             UserDTO userDTO = FormUtil.toModel(UserDTO.class,request);
             userDTO = userService.findByUserNameAndPassword(userDTO.getUsername(),userDTO.getPassword());
@@ -61,6 +62,15 @@ public class HomeController extends HttpServlet {
                 }
 
             }
+        }else if (action != null && action.equals("profile")){
+
+            UserDTO updateProfile = FormUtil.toModel(UserDTO.class,request);
+            updateProfile.setId(((UserDTO)SessionUtil.getInstance().getValue(request,"USERDTO")).getId());
+            updateProfile = userService.updateProfile(updateProfile.getId(),updateProfile.getFullname(),updateProfile.getEmail(),updateProfile.getPhone_number(),updateProfile.getAddress(), updateProfile.getCountry(),updateProfile.getBank_name(),updateProfile.getBank_account_number());
+            SessionUtil.getInstance().removeValue(request,"USERDTO");
+            response.sendRedirect(request.getContextPath()+"/trang-chu");
+
+
         }
     }
 
@@ -69,7 +79,7 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("utf-8");
+        request.setCharacterEncoding("UTF-8");
         if (action != null && action.equals("login")){
             String message = request.getParameter("message");
             String alert = request.getParameter("alert");
@@ -90,6 +100,10 @@ public class HomeController extends HttpServlet {
                 request.setAttribute("alert",alert);
             }
             RequestDispatcher requestDispatcher=request.getRequestDispatcher("/views/signup/signup.jsp");
+            requestDispatcher.forward(request,response);
+        }else if(action != null && action.equals("profile")){
+            request.setAttribute("account",userService.findUsername(((UserDTO)SessionUtil.getInstance().getValue(request,"USERDTO")).getUsername()));
+            RequestDispatcher requestDispatcher=request.getRequestDispatcher("/views/profile/profile.jsp");
             requestDispatcher.forward(request,response);
         }
         else {

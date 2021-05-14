@@ -38,7 +38,12 @@ public class UserDao extends AbtractDao<UserDTO> implements IUserDao {
         return news.isEmpty() ? null : news.get(0);
     }
 
-
+    @Override
+    public Long updateProfile(Long id,String fullname, String email, int phone_number, String address,
+                              String country, String bank_name, Long bank_account_number) {
+        String sql = "UPDATE user SET fullname = ? ,email = ? , phone_number = ? ,address = ? ,country = ?,bank_name = ?,bank_account_number = ? WHERE id = ?";
+        return  update(sql,fullname,email,phone_number,address,country,bank_name,bank_account_number,id);
+    }
 
 
 }
