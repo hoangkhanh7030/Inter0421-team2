@@ -1,10 +1,13 @@
 package ShopSmartPhone.Controller.web;
 
 import ShopSmartPhone.DTO.UserDTO;
+import ShopSmartPhone.Service.IProductService;
 import ShopSmartPhone.Service.IUserService;
+import ShopSmartPhone.Service.impl.ProductService;
 import ShopSmartPhone.Service.impl.UserService;
 import ShopSmartPhone.Utils.FormUtil;
 import ShopSmartPhone.Utils.SessionUtil;
+import ShopSmartPhone.constant.SystemConstant;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.RequestDispatcher;
@@ -19,10 +22,11 @@ import java.util.ResourceBundle;
 @WebServlet(urlPatterns = {"/trang-chu","/dang-nhap","/dang-ky","/thoat","/user-profile"})
 public class HomeController extends HttpServlet {
     ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
-
+    private IProductService productService;
     private IUserService userService;
     public HomeController(){
         userService = new UserService();
+        productService = new ProductService();
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -106,8 +110,33 @@ public class HomeController extends HttpServlet {
             RequestDispatcher requestDispatcher=request.getRequestDispatcher("/views/profile/profile.jsp");
             requestDispatcher.forward(request,response);
         }else if(action != null && action.equals("shop")) {
+            String name = request.getParameter("name");
+            if(name !=null && name.equals("samsung")){
+                request.setAttribute("productList",productService.findCategoryName("SAMSUN"));
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/shop/shop.jsp");
+                requestDispatcher.forward(request, response);
+            }else if (name !=null && name.equals("iphone")){
+                request.setAttribute("productList",productService.findCategoryName("IPHONE"));
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/shop/shop.jsp");
+                requestDispatcher.forward(request, response);
+            }
+            else if (name !=null && name.equals("xiaomi")){
+                request.setAttribute("productList",productService.findCategoryName("XIAOMI"));
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/shop/shop.jsp");
+                requestDispatcher.forward(request, response);
+            }
+            else if (name !=null && name.equals("realme")){
+                request.setAttribute("productList",productService.findCategoryName("REALME"));
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/shop/shop.jsp");
+                requestDispatcher.forward(request, response);
+            }
+
+            else {
+
+            request.setAttribute("productList",productService.findAll());
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/shop/shop.jsp");
-            requestDispatcher.forward(request, response);
+            requestDispatcher.forward(request, response);}
+
         }else if(action != null && action.equals("cart")) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/cart/cart.jsp");
             requestDispatcher.forward(request, response);

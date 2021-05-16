@@ -73,11 +73,21 @@ public class UserDTO {
 
    }
 
-    public UserDTO(String username, String password, String fullname, int role_id) {
+    public UserDTO(Long id, String username, String password, String fullname, int role_id,
+                   String email, int phone_number, String address, String country, String bank_name,
+                   Long bank_account_number, RoleDTO role) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.role_id = role_id;
+        this.email = email;
+        this.phone_number = phone_number;
+        this.address = address;
+        this.country = country;
+        this.bank_name = bank_name;
+        this.bank_account_number = bank_account_number;
+        this.role = role;
     }
 
     public String getFullname() {
